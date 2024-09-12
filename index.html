@@ -4,62 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Programming Concepts FAQ</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-      }
-      .container {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      h1 {
-        text-align: center;
-        color: #333;
-      }
-      .section {
-        margin-bottom: 20px;
-      }
-      .section h2 {
-        cursor: pointer;
-        background: #007bff;
-        color: #fff;
-        padding: 10px;
-        border-radius: 5px;
-        margin: 0;
-      }
-      .content {
-        display: none;
-        padding: 10px;
-        border-left: 3px solid #007bff;
-      }
-      .content p {
-        margin: 0 0 10px;
-      }
-      .content code {
-        display: block;
-        background: #f8f9fa;
-        padding: 10px;
-        border-radius: 5px;
-        margin: 10px 0;
-      }
-      .content ul {
-        padding-left: 20px;
-      }
-      .section .expanded {
-        display: block;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="container">
-      <h1>Programming Concepts FAQ (C#) </h1>
+      <h1>Programming Concepts FAQ (C#)</h1>
 
       <div class="section">
         <h2 onclick="toggleContent('classTypes')">
@@ -627,185 +576,388 @@
           </ul>
         </div>
       </div>
-      
+
       <div class="section">
-        <h2 onclick="toggleContent('customException')">16. How do you create a custom exception in .NET?</h2>
+        <h2 onclick="toggleContent('customException')">
+          16. How do you create a custom exception in .NET?
+        </h2>
         <div id="customException" class="content">
-            <h3>Creating a Custom Exception:</h3>
-            <ul>
-                <li><strong>Q:</strong> What are the steps to create a custom exception?<br>
-                    <strong>A:</strong>  
-                    <ul>
-                        <li><strong>Implement the `ApplicationException` class</strong>: Create a new class that derives from `ApplicationException`.</li>
-                        <li><strong>Define constructors</strong>: Provide constructors to initialize the exception with a message, inner exception, or both.</li>
-                        <li><strong>Override `Message` property</strong>: Optionally override the `Message` property to provide a custom error message.</li>
-                    </ul>
+          <h3>Creating a Custom Exception:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What are the steps to create a custom
+              exception?<br />
+              <strong>A:</strong>
+              <ul>
+                <li>
+                  <strong>Implement the `ApplicationException` class</strong>:
+                  Create a new class that derives from `ApplicationException`.
                 </li>
-            </ul>
+                <li>
+                  <strong>Define constructors</strong>: Provide constructors to
+                  initialize the exception with a message, inner exception, or
+                  both.
+                </li>
+                <li>
+                  <strong>Override `Message` property</strong>: Optionally
+                  override the `Message` property to provide a custom error
+                  message.
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="section">
-        <h2 onclick="toggleContent('oopConcepts')">17. What are the key concepts of Object-Oriented Programming (OOP)?</h2>
+      <div class="section">
+        <h2 onclick="toggleContent('oopConcepts')">
+          17. What are the key concepts of Object-Oriented Programming (OOP)?
+        </h2>
         <div id="oopConcepts" class="content">
-            <h3>Fundamental Principles of OOP:</h3>
-            <ul>
-                <li><strong>Q:</strong> What are the fundamental principles of Object-Oriented Programming (OOP)?<br>
-                    <strong>A:</strong> The key principles of OOP are:
-                    <ul>
-                        <li><strong>Encapsulation</strong>: Bundling data and methods that operate on the data within a single class.</li>
-                        <li><strong>Abstraction</strong>: Hiding complex implementation details and showing only the necessary features of an object.</li>
-                        <li><strong>Inheritance</strong>: Creating new classes that reuse, extend, and modify the behavior of existing classes.</li>
-                        <li><strong>Polymorphism</strong>: Allowing objects of different classes to be treated as objects of a common base class, with the ability to override methods for specific behaviors.</li>
-                    </ul>
+          <h3>Fundamental Principles of OOP:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What are the fundamental principles of
+              Object-Oriented Programming (OOP)?<br />
+              <strong>A:</strong> The key principles of OOP are:
+              <ul>
+                <li>
+                  <strong>Encapsulation</strong>: Bundling data and methods that
+                  operate on the data within a single class.
                 </li>
-            </ul>
+                <li>
+                  <strong>Abstraction</strong>: Hiding complex implementation
+                  details and showing only the necessary features of an object.
+                </li>
+                <li>
+                  <strong>Inheritance</strong>: Creating new classes that reuse,
+                  extend, and modify the behavior of existing classes.
+                </li>
+                <li>
+                  <strong>Polymorphism</strong>: Allowing objects of different
+                  classes to be treated as objects of a common base class, with
+                  the ability to override methods for specific behaviors.
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="section">
-        <h2 onclick="toggleContent('interfaceUsage')">18. What is an interface, and what are its benefits and limitations?</h2>
+      <div class="section">
+        <h2 onclick="toggleContent('interfaceUsage')">
+          18. What is an interface, and what are its benefits and limitations?
+        </h2>
         <div id="interfaceUsage" class="content">
-            <h3>Interface Details:</h3>
-            <ul>
-                <li><strong>Q:</strong> What is an interface in programming?<br>
-                    <strong>A:</strong> An interface is a contract that defines a set of abstract methods (without implementations) that implementing classes must provide. It is used to achieve abstraction and supports multiple inheritance.</li>
-                <li><strong>Q:</strong> What are the benefits of using interfaces?<br>
-                    <strong>A:</strong>  
-                    <ul>
-                        <li><strong>Abstraction</strong>: Interfaces provide a way to define methods without specifying how they are implemented.</li>
-                        <li><strong>Multiple Inheritance</strong>: A class can implement multiple interfaces, allowing for flexible designs.</li>
-                        <li><strong>Decoupling</strong>: Interfaces allow different parts of a program to interact without knowing the specific implementations.</li>
-                    </ul>
+          <h3>Interface Details:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is an interface in programming?<br />
+              <strong>A:</strong> An interface is a contract that defines a set
+              of abstract methods (without implementations) that implementing
+              classes must provide. It is used to achieve abstraction and
+              supports multiple inheritance.
+            </li>
+            <li>
+              <strong>Q:</strong> What are the benefits of using interfaces?<br />
+              <strong>A:</strong>
+              <ul>
+                <li>
+                  <strong>Abstraction</strong>: Interfaces provide a way to
+                  define methods without specifying how they are implemented.
                 </li>
-                <li><strong>Q:</strong> What are the limitations of using interfaces?<br>
-                    <strong>A:</strong>  
-                    <ul>
-                        <li><strong>No Implementation</strong>: Interfaces cannot provide method implementations, so all implementing classes must provide their own.</li>
-                        <li><strong>No State</strong>: Interfaces cannot maintain state or hold data.</li>
-                        <li><strong>Overhead</strong>: Implementing multiple interfaces can increase complexity in the design and implementation of classes.</li>
-                    </ul>
+                <li>
+                  <strong>Multiple Inheritance</strong>: A class can implement
+                  multiple interfaces, allowing for flexible designs.
                 </li>
-            </ul>
+                <li>
+                  <strong>Decoupling</strong>: Interfaces allow different parts
+                  of a program to interact without knowing the specific
+                  implementations.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Q:</strong> What are the limitations of using
+              interfaces?<br />
+              <strong>A:</strong>
+              <ul>
+                <li>
+                  <strong>No Implementation</strong>: Interfaces cannot provide
+                  method implementations, so all implementing classes must
+                  provide their own.
+                </li>
+                <li>
+                  <strong>No State</strong>: Interfaces cannot maintain state or
+                  hold data.
+                </li>
+                <li>
+                  <strong>Overhead</strong>: Implementing multiple interfaces
+                  can increase complexity in the design and implementation of
+                  classes.
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="section">
-        <h2 onclick="toggleContent('keywordsCSharp')">19. What do the keywords `virtual`, `ref`, `out`, and `yield` do in C#?</h2>
+      <div class="section">
+        <h2 onclick="toggleContent('keywordsCSharp')">
+          19. What do the keywords `virtual`, `ref`, `out`, and `yield` do in
+          C#?
+        </h2>
         <div id="keywordsCSharp" class="content">
-            <h3>C# Keywords:</h3>
-            <ul>
-                <li><strong>Q:</strong> What does the `virtual` keyword do?<br>
-                    <strong>A:</strong> The `virtual` keyword allows a method in a base class to be overridden in derived classes. It indicates that the method can be redefined in any subclass.</li>
-                <li><strong>Q:</strong> What is the purpose of the `ref` keyword?<br>
-                    <strong>A:</strong> The `ref` keyword is used to pass arguments by reference to a method. Changes to the parameter in the method will reflect back to the original variable in the calling method. The `ref` parameter must be initialized before being passed.</li>
-                <li><strong>Q:</strong> How does the `out` keyword differ from `ref`?<br>
-                    <strong>A:</strong> The `out` keyword is used to pass arguments to methods as reference types, typically when a method needs to return multiple values. Unlike `ref`, `out` parameters do not need to be initialized before being passed.</li>
-                <li><strong>Q:</strong> What does the `yield` keyword do?<br>
-                    <strong>A:</strong> The `yield` keyword is used in an iterator method to return elements one at a time, allowing for deferred execution and lazy evaluation. It simplifies the implementation of custom iterators.</li>
-            </ul>
+          <h3>C# Keywords:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What does the `virtual` keyword do?<br />
+              <strong>A:</strong> The `virtual` keyword allows a method in a
+              base class to be overridden in derived classes. It indicates that
+              the method can be redefined in any subclass.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the purpose of the `ref` keyword?<br />
+              <strong>A:</strong> The `ref` keyword is used to pass arguments by
+              reference to a method. Changes to the parameter in the method will
+              reflect back to the original variable in the calling method. The
+              `ref` parameter must be initialized before being passed.
+            </li>
+            <li>
+              <strong>Q:</strong> How does the `out` keyword differ from
+              `ref`?<br />
+              <strong>A:</strong> The `out` keyword is used to pass arguments to
+              methods as reference types, typically when a method needs to
+              return multiple values. Unlike `ref`, `out` parameters do not need
+              to be initialized before being passed.
+            </li>
+            <li>
+              <strong>Q:</strong> What does the `yield` keyword do?<br />
+              <strong>A:</strong> The `yield` keyword is used in an iterator
+              method to return elements one at a time, allowing for deferred
+              execution and lazy evaluation. It simplifies the implementation of
+              custom iterators.
+            </li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="section">
-        <h2 onclick="toggleContent('linqMethods')">20. What is LINQ and what are its key methods?</h2>
+      <div class="section">
+        <h2 onclick="toggleContent('linqMethods')">
+          20. What is LINQ and what are its key methods?
+        </h2>
         <div id="linqMethods" class="content">
-            <h3>LINQ Overview:</h3>
-            <ul>
-                <li><strong>Q:</strong> What is LINQ?<br>
-                    <strong>A:</strong> Language Integrated Query (LINQ) is a feature in .NET that allows querying of various data sources (such as in-memory collections, SQL databases, and XML) using a unified query syntax integrated into C#.</li>
-                <li><strong>Q:</strong> What are some key LINQ methods and their purposes?<br>
-                    <strong>A:</strong>  
-                    <ul>
-                        <li><strong>`Union`</strong>: Combines two sequences and returns unique elements from both.</li>
-                        <li><strong>`Intersect`</strong>: Returns only the elements that are present in both sequences.</li>
-                        <li><strong>`Lookup`</strong>: Groups elements by a key.</li>
-                        <li><strong>`Except`</strong>: Returns elements from the first sequence that are not present in the second sequence.</li>
-                    </ul>
+          <h3>LINQ Overview:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is LINQ?<br />
+              <strong>A:</strong> Language Integrated Query (LINQ) is a feature
+              in .NET that allows querying of various data sources (such as
+              in-memory collections, SQL databases, and XML) using a unified
+              query syntax integrated into C#.
+            </li>
+            <li>
+              <strong>Q:</strong> What are some key LINQ methods and their
+              purposes?<br />
+              <strong>A:</strong>
+              <ul>
+                <li>
+                  <strong>`Union`</strong>: Combines two sequences and returns
+                  unique elements from both.
                 </li>
-            </ul>
+                <li>
+                  <strong>`Intersect`</strong>: Returns only the elements that
+                  are present in both sequences.
+                </li>
+                <li><strong>`Lookup`</strong>: Groups elements by a key.</li>
+                <li>
+                  <strong>`Except`</strong>: Returns elements from the first
+                  sequence that are not present in the second sequence.
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="section">
-        <h2 onclick="toggleContent('solidPrinciples')">21. What are SOLID principles in software design?</h2>
+      <div class="section">
+        <h2 onclick="toggleContent('solidPrinciples')">
+          21. What are SOLID principles in software design?
+        </h2>
         <div id="solidPrinciples" class="content">
-            <h3>SOLID Principles:</h3>
-            <ul>
-                <li><strong>Q:</strong> What is the Single Responsibility Principle (SRP)?<br>
-                    <strong>A:</strong> A class should have only one reason to change, meaning it should have only one responsibility.</li>
-                <li><strong>Q:</strong> What is the Open/Closed Principle (OCP)?<br>
-                    <strong>A:</strong> A class should be open for extension but closed for modification. This means you can add new functionality without changing existing code.</li>
-                <li><strong>Q:</strong> What is the Liskov Substitution Principle (LSP)?<br>
-                    <strong>A:</strong> Objects of a derived class should be replaceable with objects of the base class without affecting the correctness of the program.</li>
-                <li><strong>Q:</strong> What is the Interface Segregation Principle (ISP)?<br>
-                    <strong>A:</strong> A class should not be forced to implement interfaces it does not use. Instead, use multiple, smaller interfaces.</li>
-                <li><strong>Q:</strong> What is the Dependency Inversion Principle (DIP)?<br>
-                    <strong>A:</strong> High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.</li>
-            </ul>
+          <h3>SOLID Principles:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is the Single Responsibility Principle
+              (SRP)?<br />
+              <strong>A:</strong> A class should have only one reason to change,
+              meaning it should have only one responsibility.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the Open/Closed Principle (OCP)?<br />
+              <strong>A:</strong> A class should be open for extension but
+              closed for modification. This means you can add new functionality
+              without changing existing code.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the Liskov Substitution Principle
+              (LSP)?<br />
+              <strong>A:</strong> Objects of a derived class should be
+              replaceable with objects of the base class without affecting the
+              correctness of the program.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the Interface Segregation Principle
+              (ISP)?<br />
+              <strong>A:</strong> A class should not be forced to implement
+              interfaces it does not use. Instead, use multiple, smaller
+              interfaces.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the Dependency Inversion Principle
+              (DIP)?<br />
+              <strong>A:</strong> High-level modules should not depend on
+              low-level modules. Both should depend on abstractions.
+              Abstractions should not depend on details. Details should depend
+              on abstractions.
+            </li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="section">
-        <h2 onclick="toggleContent('entityFramework')">22. What is Entity Framework and the difference between Code First, Database First, and Model First approaches?</h2>
+      <div class="section">
+        <h2 onclick="toggleContent('entityFramework')">
+          22. What is Entity Framework and the difference between Code First,
+          Database First, and Model First approaches?
+        </h2>
         <div id="entityFramework" class="content">
-            <h3>Entity Framework Overview:</h3>
-            <ul>
-                <li><strong>Q:</strong> What is Entity Framework (EF)?<br>
-                    <strong>A:</strong> Entity Framework (EF) is an Object-Relational Mapper (ORM) that allows developers to interact with a database using objects rather than SQL queries. It enables querying and manipulating data as strongly-typed objects.</li>
-                <li><strong>Q:</strong> What is the Code First approach in EF?<br>
-                    <strong>A:</strong> Code First allows developers to define the database schema using C# classes. The database is generated based on these classes.</li>
-                <li><strong>Q:</strong> What is the Database First approach in EF?<br>
-                    <strong>A:</strong> Database First generates C# classes based on an existing database schema. Developers work with these generated classes to interact with the database.</li>
-                <li><strong>Q:</strong> What is the Model First approach in EF?<br>
-                    <strong>A:</strong> Model First involves designing the data model using a visual designer, and then generating the database schema and C# classes from this model.</li>
-            </ul>
+          <h3>Entity Framework Overview:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is Entity Framework (EF)?<br />
+              <strong>A:</strong> Entity Framework (EF) is an Object-Relational
+              Mapper (ORM) that allows developers to interact with a database
+              using objects rather than SQL queries. It enables querying and
+              manipulating data as strongly-typed objects.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the Code First approach in EF?<br />
+              <strong>A:</strong> Code First allows developers to define the
+              database schema using C# classes. The database is generated based
+              on these classes.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the Database First approach in EF?<br />
+              <strong>A:</strong> Database First generates C# classes based on
+              an existing database schema. Developers work with these generated
+              classes to interact with the database.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the Model First approach in EF?<br />
+              <strong>A:</strong> Model First involves designing the data model
+              using a visual designer, and then generating the database schema
+              and C# classes from this model.
+            </li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="section">
-        <h2 onclick="toggleContent('designPatterns')">23. What are design patterns and why should we use them?</h2>
+      <div class="section">
+        <h2 onclick="toggleContent('designPatterns')">
+          23. What are design patterns and why should we use them?
+        </h2>
         <div id="designPatterns" class="content">
-            <h3>Design Patterns Overview:</h3>
-            <ul>
-                <li><strong>Q:</strong> What are design patterns?<br>
-                    <strong>A:</strong> Design patterns are proven solutions to common software design problems. They provide templates for solving specific issues in object-oriented design.</li>
-                <li><strong>Q:</strong> Why should we use design patterns?<br>
-                    <strong>A:</strong> Design patterns help improve code readability, reusability, and maintainability. They offer well-tested solutions and best practices that can be applied to various design problems.</li>
-                <li><strong>Q:</strong> What is the Repository pattern?<br>
-                    <strong>A:</strong> The Repository pattern provides an abstraction layer between the data access logic and the business logic. It allows for easy management and querying of data, and supports separation of concerns.</li>
-                <li><strong>Q:</strong> What is the Unit Of Work pattern?<br>
-                    <strong>A:</strong> The Unit Of Work pattern manages a set of operations that can be committed or rolled back as a single transaction. It helps ensure data consistency and manage transactional work.</li>
-            </ul>
+          <h3>Design Patterns Overview:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What are design patterns?<br />
+              <strong>A:</strong> Design patterns are proven solutions to common
+              software design problems. They provide templates for solving
+              specific issues in object-oriented design.
+            </li>
+            <li>
+              <strong>Q:</strong> Why should we use design patterns?<br />
+              <strong>A:</strong> Design patterns help improve code readability,
+              reusability, and maintainability. They offer well-tested solutions
+              and best practices that can be applied to various design problems.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the Repository pattern?<br />
+              <strong>A:</strong> The Repository pattern provides an abstraction
+              layer between the data access logic and the business logic. It
+              allows for easy management and querying of data, and supports
+              separation of concerns.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the Unit Of Work pattern?<br />
+              <strong>A:</strong> The Unit Of Work pattern manages a set of
+              operations that can be committed or rolled back as a single
+              transaction. It helps ensure data consistency and manage
+              transactional work.
+            </li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="section">
-        <h2 onclick="toggleContent('collections')">24. What are collections, thread safety, and generics in .NET?</h2>
+      <div class="section">
+        <h2 onclick="toggleContent('collections')">
+          24. What are collections, thread safety, and generics in .NET?
+        </h2>
         <div id="collections" class="content">
-            <h3>Collections, Thread Safety, and Generics:</h3>
-            <ul>
-                <li><strong>Q:</strong> What are collections in .NET?<br>
-                    <strong>A:</strong> Collections are data structures that store groups of related objects. Examples include arrays, lists, and dictionaries.</li>
-                <li><strong>Q:</strong> What does thread safety mean in the context of collections?<br>
-                    <strong>A:</strong> Thread safety ensures that a collection can be safely used by multiple threads simultaneously without causing data corruption or inconsistency.</li>
-                <li><strong>Q:</strong> What are generics and why are they beneficial?<br>
-                    <strong>A:</strong> Generics allow for the creation of classes, methods, and interfaces that operate on any data type while maintaining type safety. They are beneficial because they reduce code duplication, improve performance, and provide compile-time type checking.</li>
-                <li><strong>Q:</strong> Which is faster: using generics or non-generic collections?<br>
-                    <strong>A:</strong> Generics are generally faster than non-generic collections because they avoid the overhead of type casting and boxing/unboxing, leading to better performance and type safety.</li>
-            </ul>
+          <h3>Collections, Thread Safety, and Generics:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What are collections in .NET?<br />
+              <strong>A:</strong> Collections are data structures that store
+              groups of related objects. Examples include arrays, lists, and
+              dictionaries.
+            </li>
+            <li>
+              <strong>Q:</strong> What does thread safety mean in the context of
+              collections?<br />
+              <strong>A:</strong> Thread safety ensures that a collection can be
+              safely used by multiple threads simultaneously without causing
+              data corruption or inconsistency.
+            </li>
+            <li>
+              <strong>Q:</strong> What are generics and why are they
+              beneficial?<br />
+              <strong>A:</strong> Generics allow for the creation of classes,
+              methods, and interfaces that operate on any data type while
+              maintaining type safety. They are beneficial because they reduce
+              code duplication, improve performance, and provide compile-time
+              type checking.
+            </li>
+            <li>
+              <strong>Q:</strong> Which is faster: using generics or non-generic
+              collections?<br />
+              <strong>A:</strong> Generics are generally faster than non-generic
+              collections because they avoid the overhead of type casting and
+              boxing/unboxing, leading to better performance and type safety.
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
 
-</div>
+    <footer>
+        <span id="year">
+            <script>
+              date = document.getElementById("year");
+              date.innerHTML = "&nbsp; &copy; " + new Date().getFullYear();
+            </script>
+          </span> Developed with the help of <a href="https://chat.openai.com" target="_blank">ChatGPT</a>. | Created by Asif
+    </footer>
 
     <script>
       function toggleContent(id) {
         var content = document.getElementById(id);
-        if (content.style.display === "block") {
-          content.style.display = "none";
+        if (content.style.maxHeight) {
+          // Panel is open, we need to close it
+          content.style.maxHeight = null;
         } else {
-          content.style.display = "block";
+          // Panel is closed, we need to open it
+          content.style.maxHeight = content.scrollHeight + "px";
         }
       }
     </script>

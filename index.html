@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programming Concepts FAQ</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .section {
+        margin-bottom: 20px;
+      }
+      .section h2 {
+        cursor: pointer;
+        background: #007bff;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 0;
+      }
+      .content {
+        display: none;
+        padding: 10px;
+        border-left: 3px solid #007bff;
+      }
+      .content p {
+        margin: 0 0 10px;
+      }
+      .content code {
+        display: block;
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 10px 0;
+      }
+      .content ul {
+        padding-left: 20px;
+      }
+      .section .expanded {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Programming Concepts FAQ (C#)</h1>
+
+      <div class="section">
+        <h2 onclick="toggleContent('classTypes')">
+          1. What are the different types of classes in programming?
+        </h2>
+        <div id="classTypes" class="content">
+          <h3>Abstract Class:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> Can you create an object of an abstract
+              class?<br />
+              <strong>A:</strong> No, you cannot create an object of an abstract
+              class. You need to inherit from an abstract class to use it.
+            </li>
+            <li>
+              <strong>Q:</strong> What types of methods can an abstract class
+              contain?<br />
+              <strong>A:</strong> An abstract class can contain both abstract
+              and non-abstract methods. Abstract methods are declared with the
+              <code>abstract</code> keyword, unlike interface methods.
+            </li>
+          </ul>
+
+          <h3>Static Class:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> Can you create an object of a static class?<br />
+              <strong>A:</strong> No, you cannot create an object of a static
+              class.
+            </li>
+            <li>
+              <strong>Q:</strong> Can a static class be inherited?<br />
+              <strong>A:</strong> No, a static class cannot be inherited.
+            </li>
+            <li>
+              <strong>Q:</strong> What can a static class contain?<br />
+              <strong>A:</strong> A static class can only contain static members
+              (variables and methods), and these members must be declared with
+              the <code>static</code> keyword.
+            </li>
+          </ul>
+
+          <h3>Sealed Class:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> Can you create an object of a sealed class?<br />
+              <strong>A:</strong> Yes, you can create an object of a sealed
+              class.
+            </li>
+            <li>
+              <strong>Q:</strong> Can you inherit from a sealed class?<br />
+              <strong>A:</strong> No, you cannot inherit from a sealed class.
+            </li>
+            <li>
+              <strong>Q:</strong> What members can a sealed class have?<br />
+              <strong>A:</strong> A sealed class can have normal members.
+            </li>
+          </ul>
+
+          <h3>Partial Class:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What does the <code>partial</code> keyword do
+              for a class?<br />
+              <strong>A:</strong> The <code>partial</code> keyword allows a
+              class to be split across multiple files. At runtime, all partial
+              class files are merged into a single class. This is useful for
+              collaborative work on a single class with different
+              functionalities.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('constructors')">
+          2. What are the different types of constructors in programming?
+        </h2>
+        <div id="constructors" class="content">
+          <h3>Default Constructor:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is a default constructor?<br />
+              <strong>A:</strong> A default constructor is a constructor without
+              any parameters. It is automatically created if you do not define
+              any constructors in the class.
+            </li>
+          </ul>
+
+          <h3>Parameterized Constructor:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is a parameterized constructor?<br />
+              <strong>A:</strong> A parameterized constructor is one that takes
+              parameters. You can have multiple parameterized constructors in a
+              class, provided they have different parameter lists (constructor
+              overloading).
+            </li>
+          </ul>
+
+          <h3>Static Constructor:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> When is a static constructor called?<br />
+              <strong>A:</strong> A static constructor is called automatically
+              when a class is first accessed. It executes only once.
+            </li>
+            <li>
+              <strong>Q:</strong> What are the restrictions for a static
+              constructor?<br />
+              <strong>A:</strong> A static constructor cannot have access
+              modifiers or parameters and can only access static members of the
+              class.
+            </li>
+          </ul>
+
+          <h3>Private Constructor:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is the purpose of a private
+              constructor?<br />
+              <strong>A:</strong> A private constructor prevents the creation of
+              objects from outside the class. It is often used in classes that
+              contain only static members or in the Singleton design pattern.
+            </li>
+          </ul>
+
+          <h3>Copy Constructor:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is a copy constructor?<br />
+              <strong>A:</strong> A copy constructor is a constructor that
+              creates a new object by copying the variables from an existing
+              object.
+            </li>
+            <li>
+              <strong>Example:</strong><br />
+              <code>
+                Employee emp = new Employee();<br />
+                Employee emp1 = new Employee(emp);
+              </code>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <h2 onclick="toggleContent('extensionMethods')">
+          3. What are extension methods in programming?
+        </h2>
+        <div id="extensionMethods" class="content">
+          <h3>Extension Methods:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is an extension method?<br />
+              <strong>A:</strong> An extension method is a static method defined
+              in a static class where the <code>this</code> modifier is applied
+              to the first parameter. The type of this first parameter is the
+              type being extended. For example, if you want to add a new method
+              to the <code>string</code> type, you would create an extension
+              method so that you can call it as if it were a native method like
+              <code>str.ToString()</code>.
+            </li>
+            <li>
+              <strong>Q:</strong> How do you use extension methods?<br />
+              <strong>A:</strong> Extension methods are only available when you
+              explicitly import the namespace containing the static class with
+              the extension methods into your source code using a
+              <code>using</code> directive.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('boxingUnboxing')">
+          4. What is boxing and unboxing?
+        </h2>
+        <div id="boxingUnboxing" class="content">
+          <h3>Boxing and Unboxing:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is boxing?<br />
+              <strong>A:</strong> Boxing is the process of converting a value
+              type to a reference type.<br />
+              <strong>Example:</strong><br />
+              <code>
+                int num2 = 123;<br />
+                object num1 = num2; // num1 is now a reference type holding the
+                value of num2
+              </code>
+            </li>
+            <li>
+              <strong>Q:</strong> What is unboxing?<br />
+              <strong>A:</strong> Unboxing is the process of converting a
+              reference type back to a value type.<br />
+              <strong>Example:</strong><br />
+              <code>
+                object num1 = 123;<br />
+                int num2 = (int) num1; // num2 is now a value type holding the
+                value of num1
+              </code>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('dependencyInjection')">
+          5. What is Dependency Injection (DI) and how do scoped and transient
+          dependencies differ?
+        </h2>
+        <div id="dependencyInjection" class="content">
+          <h3>Dependency Injection (DI):</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is Dependency Injection?<br />
+              <strong>A:</strong> Dependency Injection (DI) is a design pattern
+              used to achieve loose coupling between components by injecting
+              dependencies rather than having components create them.
+            </li>
+            <li>
+              <strong>Q:</strong> What is a transient dependency?<br />
+              <strong>A:</strong> A transient dependency creates a new instance
+              of the object each time it is requested. For example, if
+              <code>MyClass</code> needs an instance of
+              <code>SomeDependency</code>, it gets one, and if
+              <code>SomeOtherClass</code> needs an instance, it gets a
+              different, new instance of <code>SomeDependency</code>.
+            </li>
+            <li>
+              <strong>Q:</strong> What is a scoped dependency?<br />
+              <strong>A:</strong> A scoped dependency ensures that the same
+              instance of the object is used throughout a single request. In the
+              context of HTTP requests, if <code>MyClass</code> and
+              <code>SomeOtherClass</code> both need an instance of
+              <code>SomeDependency</code>, they will receive the same instance
+              for the duration of that HTTP request.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <h2 onclick="toggleContent('middleware')">
+          6. What is middleware in ASP.NET?
+        </h2>
+        <div id="middleware" class="content">
+          <h3>Middleware in ASP.NET:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is middleware?<br />
+              <strong>A:</strong> Middleware is a pipeline component that sits
+              between the HTTP request and response. It allows you to insert
+              code for tasks such as authentication and logging in between the
+              incoming request and outgoing response. Examples include
+              <code>app.UseRouting</code>, <code>app.UseAuthorization</code>,
+              and <code>app.UseEndpoints</code>.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the purpose of
+              <code>app.Run()</code> method in middleware?<br />
+              <strong>A:</strong> The <code>app.Run()</code> method adds a
+              terminal middleware to the end of the pipeline. It typically does
+              not call the next middleware component and is used to terminate
+              the pipeline.
+            </li>
+            <li>
+              <strong>Q:</strong> How does <code>app.Use()</code> method differ
+              from <code>app.Run()</code>?<br />
+              <strong>A:</strong> The <code>app.Use()</code> method configures
+              middleware components and can call the next middleware in the
+              pipeline. Unlike <code>app.Run()</code>,
+              <code>app.Use()</code> can be used to chain multiple middleware
+              components and can short-circuit the pipeline by not calling the
+              next middleware.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the <code>app.Map()</code> method used
+              for?<br />
+              <strong>A:</strong> The <code>app.Map()</code> method is used to
+              branch the request pipeline based on request path matches. It
+              allows you to conditionally execute a branch of middleware if the
+              request path starts with the specified path.
+            </li>
+            <li>
+              <strong>Q:</strong> What are the characteristics of middleware?<br />
+              <strong>A:</strong>
+              <ul>
+                <li>
+                  Middleware has access to both the incoming request and the
+                  outgoing response.
+                </li>
+                <li>
+                  It can pass the request to the next piece of middleware in the
+                  pipeline.
+                </li>
+                <li>
+                  It can perform processing logic before passing the request to
+                  the next middleware.
+                </li>
+                <li>
+                  It can terminate (short-circuit) the request pipeline if
+                  needed.
+                </li>
+                <li>
+                  Middleware is executed in the order it is added to the
+                  pipeline.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <h2 onclick="toggleContent('managedUnmanagedCode')">
+          7. What is the difference between managed and unmanaged code?
+        </h2>
+        <div id="managedUnmanagedCode" class="content">
+          <h3>Managed and Unmanaged Code:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is managed code?<br />
+              <strong>A:</strong> Managed code runs under the control of the
+              Common Language Runtime (CLR) in the .NET environment. It benefits
+              from features such as garbage collection and exception handling
+              provided by the CLR.
+            </li>
+            <li>
+              <strong>Q:</strong> What is unmanaged code?<br />
+              <strong>A:</strong> Unmanaged code runs directly on the operating
+              system without the CLR. It is typically compiled into machine code
+              (e.g., executable files) and does not have the additional services
+              provided by the CLR.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('gcIDispose')">
+          8. What are garbage collection, `IDisposable`, `Dispose`, and
+          `Finalize` in .NET?
+        </h2>
+        <div id="gcIDispose" class="content">
+          <h3>Garbage Collection and Disposal:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is garbage collection?<br />
+              <strong>A:</strong> Garbage collection in .NET is a process
+              managed by the CLR that automatically frees up memory by deleting
+              objects that are no longer in use. It helps prevent memory leaks.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the `Finalize` method?<br />
+              <strong>A:</strong> The `Finalize` method is a special method in
+              .NET that is called by the garbage collector to clean up unmanaged
+              resources before an object is reclaimed. It is automatically
+              invoked by the garbage collector and cannot be called explicitly.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the `Dispose` method?<br />
+              <strong>A:</strong> The `Dispose` method is used to explicitly
+              release unmanaged resources when they are no longer needed. To
+              implement `Dispose`, a class should implement the `IDisposable`
+              interface.
+            </li>
+            <li>
+              <strong>Q:</strong> What is the `IDisposable` interface?<br />
+              <strong>A:</strong> The `IDisposable` interface defines the
+              `Dispose` method, which classes can implement to provide a way to
+              release unmanaged resources manually.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('stringStringBuilder')">
+          9. What is the difference between `string` and `StringBuilder`, and
+          when should you use each?
+        </h2>
+        <div id="stringStringBuilder" class="content">
+          <h3>String vs StringBuilder:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is the `string` type?<br />
+              <strong>A:</strong> The `string` type is immutable, meaning its
+              value cannot be changed once assigned. Every modification results
+              in the creation of a new `string` instance.
+            </li>
+            <li>
+              <strong>Q:</strong> What is `StringBuilder`?<br />
+              <strong>A:</strong> `StringBuilder` is a mutable type designed for
+              scenarios where the string value changes frequently. It is more
+              efficient for such cases because it avoids creating multiple
+              string instances.
+            </li>
+            <li>
+              <strong>Q:</strong> When should you use `StringBuilder` over
+              `string`?<br />
+              <strong>A:</strong> Use `StringBuilder` when you expect to perform
+              frequent modifications to a string value throughout the
+              application lifecycle. It is more efficient in such cases compared
+              to repeatedly modifying `string` instances.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('comparisonOperators')">
+          10. What is the difference between `==` and `Equals` in object
+          comparison?
+        </h2>
+        <div id="comparisonOperators" class="content">
+          <h3>Comparison Operators:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What does `==` do in object comparison?<br />
+              <strong>A:</strong> The `==` operator compares object references,
+              meaning it checks if two references point to the same object in
+              memory.
+            </li>
+            <li>
+              <strong>Q:</strong> What does the `Equals` method do?<br />
+              <strong>A:</strong> The `Equals` method compares the actual values
+              of the objects, assuming it is overridden in the object's class to
+              provide value-based comparison.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('threadClass')">
+          11. What is the `Thread` class and its methods?
+        </h2>
+        <div id="threadClass" class="content">
+          <h3>Thread Class:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is the `Thread` class used for?<br />
+              <strong>A:</strong> The `Thread` class is used to create and
+              manage threads in .NET.
+            </li>
+            <li>
+              <strong>Q:</strong> What functionalities does the `Thread` class
+              provide?<br />
+              <strong>A:</strong>
+              <ul>
+                <li>Creating foreground and background threads.</li>
+                <li>Setting the priority of a thread.</li>
+                <li>Getting the current state of a thread.</li>
+                <li>Providing a reference to the current executing thread.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Q:</strong> Can the `Thread` class be inherited?<br />
+              <strong>A:</strong> No, the `Thread` class is a sealed class and
+              cannot be inherited.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('taskFunctions')">
+          12. What are `Task` and its functions in .NET?
+        </h2>
+        <div id="taskFunctions" class="content">
+          <h3>Task Class:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is a `Task` in .NET?<br />
+              <strong>A:</strong> A `Task` represents an asynchronous operation
+              and is part of the Task Parallel Library (TPL). It allows for
+              easier and more efficient handling of asynchronous code compared
+              to traditional threading.
+            </li>
+            <li>
+              <strong>Q:</strong> What functions does the `Task` class
+              provide?<br />
+              <strong>A:</strong>
+              <ul>
+                <li>Creating and managing asynchronous operations.</li>
+                <li>Continuation tasks for chaining operations.</li>
+                <li>
+                  Handling results and exceptions of asynchronous operations.
+                </li>
+                <li>Scheduling tasks to run concurrently.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('bindingTypes')">
+          13. What is late binding and early binding?
+        </h2>
+        <div id="bindingTypes" class="content">
+          <h3>Late Binding vs Early Binding:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is late binding?<br />
+              <strong>A:</strong> Late binding refers to the process where the
+              type of an object and its methods or properties are determined at
+              runtime. It is used with dynamic objects where the type
+              information is not known at compile time.
+            </li>
+            <li>
+              <strong>Q:</strong> What is early binding?<br />
+              <strong>A:</strong> Early binding refers to the process where the
+              type of an object and its methods or properties are known at
+              compile time. The compiler checks for type correctness before
+              runtime.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('queryInterfaces')">
+          14. What is the difference between `IQueryable` and `IEnumerable`?
+        </h2>
+        <div id="queryInterfaces" class="content">
+          <h3>IQueryable vs IEnumerable:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is `IQueryable`?<br />
+              <strong>A:</strong> `IQueryable` is best suited for querying data
+              from a database. It allows for constructing queries that are
+              translated to SQL and executed on the database server, providing
+              efficient data retrieval.
+            </li>
+            <li>
+              <strong>Q:</strong> What is `IEnumerable`?<br />
+              <strong>A:</strong> `IEnumerable` is best for querying in-memory
+              collections. It supports iteration over collections but does not
+              provide query translation to SQL or other query optimizations.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 onclick="toggleContent('arrayArrayList')">
+          15. What are the differences between `Array` and `ArrayList`?
+        </h2>
+        <div id="arrayArrayList" class="content">
+          <h3>Array vs ArrayList:</h3>
+          <ul>
+            <li>
+              <strong>Q:</strong> What is an `Array`?<br />
+              <strong>A:</strong> An `Array` is a strongly-typed collection
+              where all elements must be of the same data type. It is fast and
+              efficient in terms of performance.
+            </li>
+            <li>
+              <strong>Q:</strong> What is an `ArrayList`?<br />
+              <strong>A:</strong> An `ArrayList` is a non-generic collection
+              that can hold elements of different data types. It is slower and
+              less efficient compared to `Array` due to its lack of type safety
+              and overhead associated with boxing and unboxing.
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2 onclick="toggleContent('customException')">16. How do you create a custom exception in .NET?</h2>
+        <div id="customException" class="content">
+            <h3>Creating a Custom Exception:</h3>
+            <ul>
+                <li><strong>Q:</strong> What are the steps to create a custom exception?<br>
+                    <strong>A:</strong>  
+                    <ul>
+                        <li><strong>Implement the `ApplicationException` class</strong>: Create a new class that derives from `ApplicationException`.</li>
+                        <li><strong>Define constructors</strong>: Provide constructors to initialize the exception with a message, inner exception, or both.</li>
+                        <li><strong>Override `Message` property</strong>: Optionally override the `Message` property to provide a custom error message.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 onclick="toggleContent('oopConcepts')">17. What are the key concepts of Object-Oriented Programming (OOP)?</h2>
+        <div id="oopConcepts" class="content">
+            <h3>Fundamental Principles of OOP:</h3>
+            <ul>
+                <li><strong>Q:</strong> What are the fundamental principles of Object-Oriented Programming (OOP)?<br>
+                    <strong>A:</strong> The key principles of OOP are:
+                    <ul>
+                        <li><strong>Encapsulation</strong>: Bundling data and methods that operate on the data within a single class.</li>
+                        <li><strong>Abstraction</strong>: Hiding complex implementation details and showing only the necessary features of an object.</li>
+                        <li><strong>Inheritance</strong>: Creating new classes that reuse, extend, and modify the behavior of existing classes.</li>
+                        <li><strong>Polymorphism</strong>: Allowing objects of different classes to be treated as objects of a common base class, with the ability to override methods for specific behaviors.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 onclick="toggleContent('interfaceUsage')">18. What is an interface, and what are its benefits and limitations?</h2>
+        <div id="interfaceUsage" class="content">
+            <h3>Interface Details:</h3>
+            <ul>
+                <li><strong>Q:</strong> What is an interface in programming?<br>
+                    <strong>A:</strong> An interface is a contract that defines a set of abstract methods (without implementations) that implementing classes must provide. It is used to achieve abstraction and supports multiple inheritance.</li>
+                <li><strong>Q:</strong> What are the benefits of using interfaces?<br>
+                    <strong>A:</strong>  
+                    <ul>
+                        <li><strong>Abstraction</strong>: Interfaces provide a way to define methods without specifying how they are implemented.</li>
+                        <li><strong>Multiple Inheritance</strong>: A class can implement multiple interfaces, allowing for flexible designs.</li>
+                        <li><strong>Decoupling</strong>: Interfaces allow different parts of a program to interact without knowing the specific implementations.</li>
+                    </ul>
+                </li>
+                <li><strong>Q:</strong> What are the limitations of using interfaces?<br>
+                    <strong>A:</strong>  
+                    <ul>
+                        <li><strong>No Implementation</strong>: Interfaces cannot provide method implementations, so all implementing classes must provide their own.</li>
+                        <li><strong>No State</strong>: Interfaces cannot maintain state or hold data.</li>
+                        <li><strong>Overhead</strong>: Implementing multiple interfaces can increase complexity in the design and implementation of classes.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 onclick="toggleContent('keywordsCSharp')">19. What do the keywords `virtual`, `ref`, `out`, and `yield` do in C#?</h2>
+        <div id="keywordsCSharp" class="content">
+            <h3>C# Keywords:</h3>
+            <ul>
+                <li><strong>Q:</strong> What does the `virtual` keyword do?<br>
+                    <strong>A:</strong> The `virtual` keyword allows a method in a base class to be overridden in derived classes. It indicates that the method can be redefined in any subclass.</li>
+                <li><strong>Q:</strong> What is the purpose of the `ref` keyword?<br>
+                    <strong>A:</strong> The `ref` keyword is used to pass arguments by reference to a method. Changes to the parameter in the method will reflect back to the original variable in the calling method. The `ref` parameter must be initialized before being passed.</li>
+                <li><strong>Q:</strong> How does the `out` keyword differ from `ref`?<br>
+                    <strong>A:</strong> The `out` keyword is used to pass arguments to methods as reference types, typically when a method needs to return multiple values. Unlike `ref`, `out` parameters do not need to be initialized before being passed.</li>
+                <li><strong>Q:</strong> What does the `yield` keyword do?<br>
+                    <strong>A:</strong> The `yield` keyword is used in an iterator method to return elements one at a time, allowing for deferred execution and lazy evaluation. It simplifies the implementation of custom iterators.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 onclick="toggleContent('linqMethods')">20. What is LINQ and what are its key methods?</h2>
+        <div id="linqMethods" class="content">
+            <h3>LINQ Overview:</h3>
+            <ul>
+                <li><strong>Q:</strong> What is LINQ?<br>
+                    <strong>A:</strong> Language Integrated Query (LINQ) is a feature in .NET that allows querying of various data sources (such as in-memory collections, SQL databases, and XML) using a unified query syntax integrated into C#.</li>
+                <li><strong>Q:</strong> What are some key LINQ methods and their purposes?<br>
+                    <strong>A:</strong>  
+                    <ul>
+                        <li><strong>`Union`</strong>: Combines two sequences and returns unique elements from both.</li>
+                        <li><strong>`Intersect`</strong>: Returns only the elements that are present in both sequences.</li>
+                        <li><strong>`Lookup`</strong>: Groups elements by a key.</li>
+                        <li><strong>`Except`</strong>: Returns elements from the first sequence that are not present in the second sequence.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 onclick="toggleContent('solidPrinciples')">21. What are SOLID principles in software design?</h2>
+        <div id="solidPrinciples" class="content">
+            <h3>SOLID Principles:</h3>
+            <ul>
+                <li><strong>Q:</strong> What is the Single Responsibility Principle (SRP)?<br>
+                    <strong>A:</strong> A class should have only one reason to change, meaning it should have only one responsibility.</li>
+                <li><strong>Q:</strong> What is the Open/Closed Principle (OCP)?<br>
+                    <strong>A:</strong> A class should be open for extension but closed for modification. This means you can add new functionality without changing existing code.</li>
+                <li><strong>Q:</strong> What is the Liskov Substitution Principle (LSP)?<br>
+                    <strong>A:</strong> Objects of a derived class should be replaceable with objects of the base class without affecting the correctness of the program.</li>
+                <li><strong>Q:</strong> What is the Interface Segregation Principle (ISP)?<br>
+                    <strong>A:</strong> A class should not be forced to implement interfaces it does not use. Instead, use multiple, smaller interfaces.</li>
+                <li><strong>Q:</strong> What is the Dependency Inversion Principle (DIP)?<br>
+                    <strong>A:</strong> High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 onclick="toggleContent('entityFramework')">22. What is Entity Framework and the difference between Code First, Database First, and Model First approaches?</h2>
+        <div id="entityFramework" class="content">
+            <h3>Entity Framework Overview:</h3>
+            <ul>
+                <li><strong>Q:</strong> What is Entity Framework (EF)?<br>
+                    <strong>A:</strong> Entity Framework (EF) is an Object-Relational Mapper (ORM) that allows developers to interact with a database using objects rather than SQL queries. It enables querying and manipulating data as strongly-typed objects.</li>
+                <li><strong>Q:</strong> What is the Code First approach in EF?<br>
+                    <strong>A:</strong> Code First allows developers to define the database schema using C# classes. The database is generated based on these classes.</li>
+                <li><strong>Q:</strong> What is the Database First approach in EF?<br>
+                    <strong>A:</strong> Database First generates C# classes based on an existing database schema. Developers work with these generated classes to interact with the database.</li>
+                <li><strong>Q:</strong> What is the Model First approach in EF?<br>
+                    <strong>A:</strong> Model First involves designing the data model using a visual designer, and then generating the database schema and C# classes from this model.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 onclick="toggleContent('designPatterns')">23. What are design patterns and why should we use them?</h2>
+        <div id="designPatterns" class="content">
+            <h3>Design Patterns Overview:</h3>
+            <ul>
+                <li><strong>Q:</strong> What are design patterns?<br>
+                    <strong>A:</strong> Design patterns are proven solutions to common software design problems. They provide templates for solving specific issues in object-oriented design.</li>
+                <li><strong>Q:</strong> Why should we use design patterns?<br>
+                    <strong>A:</strong> Design patterns help improve code readability, reusability, and maintainability. They offer well-tested solutions and best practices that can be applied to various design problems.</li>
+                <li><strong>Q:</strong> What is the Repository pattern?<br>
+                    <strong>A:</strong> The Repository pattern provides an abstraction layer between the data access logic and the business logic. It allows for easy management and querying of data, and supports separation of concerns.</li>
+                <li><strong>Q:</strong> What is the Unit Of Work pattern?<br>
+                    <strong>A:</strong> The Unit Of Work pattern manages a set of operations that can be committed or rolled back as a single transaction. It helps ensure data consistency and manage transactional work.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 onclick="toggleContent('collections')">24. What are collections, thread safety, and generics in .NET?</h2>
+        <div id="collections" class="content">
+            <h3>Collections, Thread Safety, and Generics:</h3>
+            <ul>
+                <li><strong>Q:</strong> What are collections in .NET?<br>
+                    <strong>A:</strong> Collections are data structures that store groups of related objects. Examples include arrays, lists, and dictionaries.</li>
+                <li><strong>Q:</strong> What does thread safety mean in the context of collections?<br>
+                    <strong>A:</strong> Thread safety ensures that a collection can be safely used by multiple threads simultaneously without causing data corruption or inconsistency.</li>
+                <li><strong>Q:</strong> What are generics and why are they beneficial?<br>
+                    <strong>A:</strong> Generics allow for the creation of classes, methods, and interfaces that operate on any data type while maintaining type safety. They are beneficial because they reduce code duplication, improve performance, and provide compile-time type checking.</li>
+                <li><strong>Q:</strong> Which is faster: using generics or non-generic collections?<br>
+                    <strong>A:</strong> Generics are generally faster than non-generic collections because they avoid the overhead of type casting and boxing/unboxing, leading to better performance and type safety.</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+    <script>
+      function toggleContent(id) {
+        var content = document.getElementById(id);
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

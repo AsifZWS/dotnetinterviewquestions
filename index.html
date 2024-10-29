@@ -950,15 +950,28 @@
     </footer>
 
     <script>
+      let openContentId = null;
+
       function toggleContent(id) {
         var content = document.getElementById(id);
-        if (content.style.maxHeight) {
-          // Panel is open, we need to close it
-          content.style.maxHeight = null;
-        } else {
-          // Panel is closed, we need to open it
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
+        if (openContentId && openContentId !== id) {
+    // Collapse currently open content
+    const currentlyOpenContent = document.getElementById(openContentId);
+    currentlyOpenContent.style.maxHeight = null;
+    currentlyOpenContent.previousElementSibling.setAttribute('aria-expanded', 'false');
+  }
+
+  if (content.style.maxHeight) {
+    // Collapse the clicked content
+    content.style.maxHeight = null;
+    openContentId = null;
+    event.target.setAttribute('aria-expanded', 'false');
+  } else {
+    // Expand the clicked content
+    content.style.maxHeight = content.scrollHeight + "px";
+    openContentId = id;
+    event.target.setAttribute('aria-expanded', 'true');
+  }
       }
     </script>
   </body>
